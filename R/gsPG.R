@@ -123,11 +123,11 @@ process.probe.gene <- function(probe.p, GeneProbeTable, Data4Cor, combpMethod,
     genep <- unlist(genep)
     names(genep) <- genelist
     genep <- genep[!is.na(genep)]
-    list(cpg.gp = cpg.gp, genep = genep)
+    list(GeneProbeTable = GeneProbeTable, genep = genep)
 }
 
 # Select significant genes and prepare gene sets
-select.sig.genes <- function(cpg.gp, genep, GeneProbeTable, FDRthre, nTopPG,
+select.sig.genes <- function(genep, GeneProbeTable, FDRthre, nTopPG,
                             geneSet, gSetName, species) {
     if (is.null(nTopPG)) {
         sig.gp <- names(genep)[p.adjust(genep, method = "fdr") < FDRthre]
@@ -200,9 +200,9 @@ gsPG <- function(probe.p, Data4Cor = NULL, FDRthre = 0.05, nTopPG = NULL,
     GeneProbeTable <- input$GeneProbeTable
     proc <- process.probe.gene(probe.p, GeneProbeTable, Data4Cor, combpMethod,
                             combpAdjust, ncore)
-    cpg.gp <- proc$cpg.gp
+    GeneProbeTable <- proc$GeneProbeTable
     genep <- proc$genep
-    sig <- select.sig.genes(cpg.gp, genep, GeneProbeTable, FDRthre, nTopPG,
+    sig <- select.sig.genes(genep, GeneProbeTable, FDRthre, nTopPG,
                         geneSet, gSetName, species)
     run.gsea.core(sig$sig.gp, sig$sig.gene, sig$sgName, sig$gSetName12,
             sig$universe, genep, geneSet, MonteCarlo, ncore, outfile,species)
