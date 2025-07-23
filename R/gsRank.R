@@ -68,7 +68,7 @@ generate_null_distributions <- function(nSim, gsSize, rgl,ng,ncore,scoreType){
 }
 
 # Calculate permutation p-values
-calculate_permutation_pvalues <- function(es0,gsSize0,mat.null,scoreType,nSim){
+calculate_permutation_pvalues <- function(es0,gsSize0,mat.null,scoreType){
     gsSize0 <- as.character(gsSize0)
     if (scoreType == "pos") {
     vapply(seq_along(es0), function(i) {
@@ -164,8 +164,7 @@ betaFitPermu <- function(gSet, rgl, nSim = 10000, es0, ncore, scoreType) {
     mat.null <- generate_null_distributions(nSim,gsSize,rgl,ng,ncore,scoreType)
     colnames(mat.null) <- gsSize
 
-    permuP <- calculate_permutation_pvalues(es0, gsSize0, mat.null, scoreType,
-            nSim)
+    permuP <- calculate_permutation_pvalues(es0, gsSize0, mat.null, scoreType)
     p <- fit_beta_and_adjust_pvalues(es0, mat.null, gsSize0, scoreType,
         nSim,permuP)
 

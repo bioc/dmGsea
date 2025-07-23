@@ -1,5 +1,5 @@
 # permutation test simulation
-permuTestSim <- function(gSet, rgl, nSim, ncore, maxGsSize, gsSize) {
+permuTestSim <- function(rgl, nSim, ncore, maxGsSize, gsSize) {
     ng <- length(rgl)
     resu <- mclapply(seq_len(nSim), function(k) {
         rgs <- sample.int(ng, maxGsSize)
@@ -45,7 +45,7 @@ permuTest2 <- function(gSet, rgl, nSim = 10000, es0, ncore) {
     gsSize0 <- vapply(gSet, length, FUN.VALUE = numeric(1))
     gsSize <- unique(gsSize0)
     maxGsSize <- max(gsSize)
-    mat.null <- permuTestSim(gSet, rgl, nSim, ncore, maxGsSize, gsSize)
+    mat.null <- permuTestSim(rgl, nSim, ncore, maxGsSize, gsSize)
     permuP <- permuTestP(mat.null, gsSize0, es0, nSim)
     p <- permuTestBeta(mat.null, gsSize0, es0)
     return(list(p = p, permuP = permuP))

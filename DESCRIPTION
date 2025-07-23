@@ -19,11 +19,11 @@ Description: The R package dmGsea provides efficient gene set enrichment
 License: Artistic-2.0
 biocViews: GeneSetEnrichment, Pathways,DNAMethylation,Proteomics,Sequencing,
     CopyNumberVariation, GeneExpression, GenomicVariation, Coverage
-Depends: utils,stats,parallel,Matrix,SummarizedExperiment,methods
+Depends: utils,stats,parallel,Matrix,SummarizedExperiment,methods,R(>= 3.5.0)
 Suggests: msigdbr, org.Hs.eg.db, org.Mm.eg.db, minfi, knitr, rmarkdown, GO.db,
         KEGGREST, testthat, IlluminaHumanMethylationEPICanno.ilm10b4.hg19,
         IlluminaHumanMethylation450kanno.ilmn12.hg19, BiocStyle, RUnit
-Imports:dqrng,AnnotationDbi,poolr,BiasedUrn,Seqinfo
+Imports:dqrng,AnnotationDbi,poolr,BiasedUrn,GenomeInfoDb
 VignetteBuilder: knitr
 Encoding: UTF-8
 URL: https://github.com/Bioconductor/dmGsea

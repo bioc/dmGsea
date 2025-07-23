@@ -103,9 +103,10 @@ getReactome <- function(species="Human"){
     }else{"We only have Human and Mouse data currently, please provide
     geneSet list"}
 
-    URL <- "https://reactome.org/download/current/NCBI2Reactome_All_Levels.txt"
-    n2r <- read.table(URL, sep = "\t", quote = "\"", fill = TRUE,
-                comment.char = "", stringsAsFactors = FALSE)
+#    URL <- "https://reactome.org/download/current/NCBI2Reactome_All_Levels.txt"
+#    n2r <- read.table(URL, sep = "\t", quote = "\"", fill = TRUE,
+#                comment.char = "", stringsAsFactors = FALSE)
+    n2r <- readRDS(system.file("ReactomeDB.rds",package="dmGsea"))
     n2r <- n2r[n2r$V6 == species,]
     n2r$id <- paste(n2r$V2,n2r$V4,sep="|")
     gsets <- tapply(n2r$V1,n2r$id,list)

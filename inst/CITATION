@@ -1,0 +1,16 @@
+c(
+  bibentry(bibtype = "Article",
+           key = "dmGsea",
+           title = "Efficient gene set analysis for DNA methylation addressing probe dependency and bias",
+           author = c(
+           person("Zongli", "Xu"),
+           person("Alison, A.","Motsinger-Reif"),
+           person("Liang", "Niu")
+           ),
+           year = 2025,
+           doi = "https://doi.org/10.1093/bioinformatics/btaf422",
+           journal = "Bioinformatics",
+           pubmed = "---",
+	   header = "dmGsea R pacakge")
+)
+
