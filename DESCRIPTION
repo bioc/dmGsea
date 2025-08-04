@@ -1,14 +1,14 @@
 Package: dmGsea
 Type: Package
 Title: Efficient Gene Set Enrichment Analysis for DNA Methylation Data
-Version: 0.99.9
+Version: 0.99.10
 Authors@R:
-    c(person("Zongli","Xu",email="xuz@niehs.nih.gov",role=c("cre","aut"),
+    c(person("Zongli","Xu",email="xuz@niehs.nih.gov",role=c("aut","cre"),
         comment=c(ORCID="0000-0002-9034-8902")),
     person("Alison","Motsinger-Reif",email="alison.motsinger-reif@nih.gov"
         ,role="aut"),
-    person("Liang", "Niu", role="aut",email="niulg@ucmail.uc.edu"),
-    person("Zongli", "Xu", role = "fnd"))
+    person("Liang", "Niu", role=c("aut","cre"),email="niulg@ucmail.uc.edu")
+    )
 Description: The R package dmGsea provides efficient gene set enrichment 
     analysis specifically for DNA methylation data. It addresses key biases,
     including probe dependency and varying probe numbers per gene. The package

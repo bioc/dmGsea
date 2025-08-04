@@ -283,6 +283,12 @@ and works well with correlated p-values.</li>
 when one test is expected to show a strong signal.</li>
 </ul>
 
+# References
+Zongli Xu, Alison A Motsinger-Reif, Liang Niu, Efficient gene set analysis
+for DNA methylation addressing probe dependency and bias. Bioinformatics,
+2025 Jul 24:btaf422. PMID: 40705664 DOI: 10.1093/bioinformatics/btaf422
+Full text linksCite
+
 ```{r session info}
 sessionInfo() 
 ```

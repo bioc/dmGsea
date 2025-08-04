@@ -8,9 +8,9 @@ c(
            person("Liang", "Niu")
            ),
            year = 2025,
-           doi = "https://doi.org/10.1093/bioinformatics/btaf422",
            journal = "Bioinformatics",
-           pubmed = "---",
+           doi = "10.1093/bioinformatics/btaf422",
+           pubmed = "40705664",
 	   header = "dmGsea R pacakge")
 )
 
