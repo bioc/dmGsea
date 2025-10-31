@@ -184,6 +184,7 @@ combinep <- function(gid,Data4Cor,GeneProbeTablep,combpMethod,combpAdjust){
     }else{
     dat <- t(Data4Cor[as.vector(subset$Name),])
     Rmatrix <- cor(dat,use="pairwise.complete.obs")
+    diag(Rmatrix) <- rep(1, nrow(Rmatrix))
     eval(parse(text=paste0("poolr::",combpMethod,"(p=allp,adjust=combpAdjust,
             R=Rmatrix)")))$p
     }}else{allp}
