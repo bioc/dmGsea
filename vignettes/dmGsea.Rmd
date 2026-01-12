@@ -112,10 +112,12 @@ dat <- matrix(runif(length(p)*100),ncol=100)
 rownames(dat) <- Name
 
 #enrichment analysis
+if(FALSE){
 gsGene(probe.p=probe.p,Data4Cor=dat,GeneProbeTable=GeneProbeTable,
         method="Threshold",gSetName="KEGG",species="Human",outfile="gs5",
         ncore=1)
 file.remove("gs5_KEGG_KEGG.csv")
+}
 ```
 
 - To perform GSEA using a ranking-based method, specify `method = "Ranking"`.
@@ -127,10 +129,12 @@ file.remove("gs5_KEGG_KEGG.csv")
 userGeneset <- getKEGG(species="Human")
 
 #enrichment analysis
+if(FALSE){
 gsGene(probe.p=probe.p,Data4Cor=dat,GeneProbeTable=GeneProbeTable,
         method="Threshold",geneSet=userGeneset,species="Human",outfile="gs7",
         ncore=1)
 file.remove("gs7_userSet_userSet.csv")
+}
 ```
 - To perform GSEA using a ranking-based method, specify `method = "Ranking"`.
 
@@ -147,10 +151,12 @@ stats <- -log(p)*sample(c(1,-1),length(p),replace=TRUE)
 
 #traditional GSEA analysis, enrichment toward higher or lower end of statstics
 stats <- sort(stats,decr=TRUE)
+if(FALSE){
 gsRank(stats=stats,gSetName="KEGG",scoreType="std",outfile="gs9",nperm=1e4,
     ncore=1)
 file.remove("gs9_KEGG_KEGG.csv")
 file.remove("gsGene_genep.csv")
+}
 
 #enrichment of genes with higher statistics
 stats <- sort(abs(stats),decr=TRUE)
