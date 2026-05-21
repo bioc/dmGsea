@@ -74,12 +74,19 @@ getKEGG <- function(species="Human"){
     }else{stop("We only have Human and Mouse data currently, please provide
             geneSet list")}
 
-    links    <- KEGGREST::keggLink("pathway", species)
+    links <- try(KEGGREST::keggLink("pathway", species), silent = TRUE)
+    if (inherits(links, "try-error")) {
+      load(system.file("extdata", "KEGGdb.RData", package = "dmGsea"))
+      links <- get(paste0("links_", species))
+      name  <- get(paste0("name_",  species))
+    } else {
+      name <- KEGGREST::keggList("pathway", species)
+    }
+
     path <- data.frame(geneid=names(links),pathwayid=links)
     path$geneid <- sub(".*:","",path$geneid)
     path$pathwayid <- sub(".*:","",path$pathwayid)
     kegg <- tapply(path$geneid, path$pathwayid,list)
-    name <- KEGGREST::keggList("pathway", species)
     names(kegg) <- paste0(names(kegg),"|",name[names(kegg)])
     return(kegg)
 }
