@@ -76,7 +76,7 @@ getKEGG <- function(species="Human"){
 
     links <- try(KEGGREST::keggLink("pathway", species), silent = TRUE)
     if (inherits(links, "try-error")) {
-      load(system.file("extdata", "KEGGdb.RData", package = "dmGsea"))
+      load(system.file("KEGGdb.RData", package = "dmGsea"))
       links <- get(paste0("links_", species))
       name  <- get(paste0("name_",  species))
     } else {
