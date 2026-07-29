@@ -55,7 +55,8 @@ dmGsea functions.
 
 ## Example 1: Differentially methylated probes from EWAS
 
-```{r example1,eval=TRUE, results="hide", message=FALSE, warning=FALSE}
+```{r example1,eval=FALSE, results="hide", message=FALSE, warning=FALSE}
+#{r example1, results="hide", message=FALSE, warning=FALSE, eval=requireNamespace("minfi", quietly = TRUE)}
 require(dmGsea)
 #generating example data
 annopkg <- "IlluminaHumanMethylation450kanno.ilmn12.hg19"
@@ -94,7 +95,7 @@ file.remove("gs1_KEGG_KEGG.csv")
 
 ## Example 2: Enrichment analysis for arrays other than 450K and EPIC
 
-```{r example2, eval=TRUE, results="hide", message=FALSE, warning=FALSE}
+```{r example2, eval=FALSE, results="hide", message=FALSE, warning=FALSE}
 #generate example dataset
 kegg <- getKEGG(species="Human")
 gene1 <- unique(as.vector(unlist(kegg[1:5])))
@@ -124,7 +125,7 @@ file.remove("gs5_KEGG_KEGG.csv")
 
 ## Example 3: Enrichment analysis with user provided geneset
 
-```{r example3, eval=TRUE, results="hide", message=FALSE, warning=FALSE}
+```{r example3, eval=FALSE, results="hide", message=FALSE, warning=FALSE}
 #generatin example dataset
 userGeneset <- getKEGG(species="Human")
 
@@ -141,7 +142,7 @@ file.remove("gs7_userSet_userSet.csv")
 ## Example 4: Enrichment analysis for gene expression type of data that do not
 ## need to combine test statistics
 
-```{r example4, eval=TRUE, results="hide", message=FALSE, warning=FALSE}
+```{r example4, eval=FALSE, results="hide", message=FALSE, warning=FALSE}
 #generatin example dataset
 kegg <- getKEGG(species="Human")
 gene <- unique(as.vector(unlist(kegg)))
