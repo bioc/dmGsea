@@ -179,8 +179,8 @@ p.gs <- function(gs,gene.info){
     odds <- min((1-pw.red)*pw.white/((1-pw.white)*pw.red),1e+100)
 
     ng2 <- nrow(gene.info)-gs.ng
-    p <- BiasedUrn::pFNCHypergeo(gs.score,gs.ng,ng2,n.sg,odds,lower.tail=FALSE)
-    +BiasedUrn::dFNCHypergeo(gs.score,gs.ng,ng2,n.sg,odds)
+    p <-BiasedUrn::pFNCHypergeo(gs.score,gs.ng,ng2,n.sg,odds,lower.tail=FALSE)+
+        BiasedUrn::dFNCHypergeo(gs.score,gs.ng,ng2,n.sg,odds)
     }
     c(gs.ng,gs.score,p)
 }
